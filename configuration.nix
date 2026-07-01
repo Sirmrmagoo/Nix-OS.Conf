@@ -80,6 +80,12 @@
     bottles
     distrobox
     spotify
+    audacity
+    blender
+    discord
+    btop
+    vlc
+    inochi-creator
   ];
 
   environment.sessionVariables = {
@@ -89,9 +95,7 @@
 
   programs.gamemode.enable = true;
 
-  hardware.opengl = {
-    enable = true;
-  };
+  hardware.graphics.enable = true;
 
   services.xserver.videoDrivers = ["amdgpu"];
 
