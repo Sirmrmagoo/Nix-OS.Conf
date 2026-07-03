@@ -86,6 +86,34 @@
     btop
     vlc
     inochi-creator
+  (pkgs.wrapOBS {
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vaapi #optional AMD hardware acceleration
+      obs-gstreamer
+      obs-vkcapture
+      obs-advanced-masks
+      obs-3d-effect
+      obs-composite-blur
+      obs-freeze-filter
+      obs-gradient-source
+      obs-move-transition
+      obs-mute-filter
+      obs-plugin-countdown
+      obs-replay-source
+      obs-retro-effects
+      obs-scale-to-sound
+      obs-shaderfilter
+      obs-source-clone
+      obs-stroke-glow-shadow
+      obs-source-switcher
+      obs-source-record
+      waveform
+    ];
+  })
+
   ];
 
   environment.sessionVariables = {
@@ -93,32 +121,15 @@
       "\${HOME}/.steam/root/compatibilitytools.d";
   };
 
-  programs.gamemode.enable = true;
 
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   services.xserver.videoDrivers = ["amdgpu"];
 
-  programs.obs-studio = {
-    enable = true;
-
-    # optional Nvidia hardware acceleration
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
-    );
-
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-pipewire-audio-capture
-      obs-vaapi #optional AMD hardware acceleration
-      obs-gstreamer
-      obs-vkcapture
-      
-    ];
-  };
-
+  programs.obs-studio.enable = true;
 
   system.stateVersion = "26.05";
 }
