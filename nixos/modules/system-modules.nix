@@ -8,5 +8,6 @@
         ./system/garbage-settings.nix
         ./system/networking-settings.nix
         ./system/time-settings.nix
+        ./system/virtualization-settings.nix
     ];
 }
