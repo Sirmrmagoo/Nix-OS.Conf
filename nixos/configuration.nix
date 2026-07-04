@@ -11,6 +11,15 @@
   #Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  users.users."sirmr" = {
+    isNormalUser = true;
+    description = "sirmr";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      kdePackages.kate
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     fastfetch
@@ -27,6 +36,7 @@
     vlc
     inochi-creator
     vscode
+    github-desktop
   ];
 
   programs.firefox.enable = true;

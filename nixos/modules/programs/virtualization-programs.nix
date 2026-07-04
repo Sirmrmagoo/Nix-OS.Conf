@@ -6,6 +6,7 @@
     lutris
     bottles
     distrobox
+    boxbuddy
     ];
 
 }
