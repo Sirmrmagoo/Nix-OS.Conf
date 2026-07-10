@@ -38,6 +38,8 @@
     vscode
     github-desktop
     easyeffects
+    kitty
+    makemkv
   ];
 
   programs.firefox.enable = true;
