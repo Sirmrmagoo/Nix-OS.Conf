@@ -6,6 +6,8 @@
       ./hardware-configuration.nix
       ./modules/system-modules.nix
       ./modules/program-modules.nix
+      ./opendeck.nix
+
     ];
 
   #Enable Flakes
